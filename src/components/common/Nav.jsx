@@ -25,6 +25,10 @@ export const Navs = ({ classes }) => {
 
   const authLinks = (
     <Fragment>
+      <Link to="/">
+        <i className="fas fa-home"></i>
+        <span style={{ fontSize: "20px" }}> Home</span>
+      </Link>
       <Link to="#!" onClick={onLogout}>
         <i className="fas fa-sign-out-alt"></i>
         <span style={{ fontSize: "20px" }}> Logout</span>
@@ -59,19 +63,24 @@ export const Navs = ({ classes }) => {
             <Fragment>
               <div className="cover-image">
                 <div className="layer"></div>
-              </div>
-              {user && (
-                <div className="user">
-                  <i className="fas fa-user-circle user-icon"></i>
-                  <div className=" user-details">
-                    <p className="d-block my-0"> {user && user.name}</p>
-                    <p className="d-block my-0" style={{ fontSize: "10px" }}>
-                      {" "}
-                      {user && user.email}
-                    </p>
-                  </div>
+                <div>
+                  {user && (
+                    <div className="user">
+                      <i className="fas fa-user-circle user-icon"></i>
+                      <div className=" user-details">
+                        <p className="d-block my-0"> {user && user.name}</p>
+                        <p
+                          className="d-block my-0"
+                          style={{ fontSize: "10px" }}
+                        >
+                          {" "}
+                          {user && user.email}
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </div>
-              )}
+              </div>
               {isAuthenticated ? authLinks : guestLinks}
               {!user && <i className="fas fa-user-circle no-user"></i>}
             </Fragment>

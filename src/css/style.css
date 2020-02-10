@@ -231,7 +231,7 @@
 
 .dashboard {
   height: 400px;
-  background: url("../viand-images/covers/1.jpg");
+  background: url("../viand-images/1.jpg");
   -webkit-box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.7);
           box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.7);
   background-size: cover;
@@ -284,7 +284,7 @@ nav {
   font-family: "Francois One", sans-serif !important;
 }
 
-nav ul a:hover {
+nav a:hover {
   color: white !important;
 }
 
@@ -303,7 +303,7 @@ nav #mobile-nav {
 nav .cover-image {
   width: 100%;
   height: 21%;
-  background: url("https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+  background: url("https://images.pexels.com/photos/1565982/pexels-photo-1565982.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
   background-size: cover;
 }
 
@@ -335,6 +335,7 @@ nav .sidenav .user .user-icon {
 nav .sidenav .user .user-details {
   font-weight: 400 !important;
   height: 20px;
+  line-height: 20px;
   width: 100%;
 }
 
@@ -347,6 +348,10 @@ nav .sidenav .no-user {
   position: absolute;
   left: 30px;
   top: 80px;
+}
+
+.sidenav-trigger a:hover {
+  color: white;
 }
 
 .sidenav li > a {

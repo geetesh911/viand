@@ -1,7 +1,0 @@
-Data required for viand for each item
-
-whishlist
-
-1. name
-2. expense
-3. place
