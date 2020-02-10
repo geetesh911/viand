@@ -3,15 +3,18 @@ import Dashboard from "./Dashboard";
 import { Cards } from "./../cards/Cards";
 import { Link } from "react-router-dom";
 import AuthContext from "./../../context/auth/authContext";
+import CardContext from "./../../context/cards/cardContext";
 
 export const Home = ({ cards }) => {
   const authContext = useContext(AuthContext);
+  const cardContext = useContext(CardContext);
 
   const { loadUser } = authContext;
+  const { clearZomato } = cardContext;
 
   useEffect(() => {
     loadUser();
-    // clearCard();
+    clearZomato();
     // eslint-disable-next-line
   }, []);
 

@@ -13,10 +13,13 @@ export const AddCardForm = props => {
   const { zomatoData } = cardContext;
   let photosData = [];
 
-  // if (zomatoData.photos)
-  zomatoData.photos
-    ? zomatoData.photos.forEach(photo => photosData.push(photo.photo.url))
-    : (photosData = []);
+  if (!zomatoData) {
+    props.history.push("/");
+  } else {
+    zomatoData.photos
+      ? zomatoData.photos.forEach(photo => photosData.push(photo.photo.url))
+      : (photosData = []);
+  }
 
   const [card, setCard] = useState({
     name: "",
