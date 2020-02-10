@@ -27,9 +27,19 @@
     .fas {
       color: $whiteFirstLayer;
       &:hover {
-        color: $whiteSecondLayer;
+        color: $whiteThirdLayer;
       }
     }
+  }
+  .visitedDate {
+    float: right;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+  .location {
+    margin: 5px 0 0 0;
+    color: $whiteSecondLayer;
   }
 }
 
@@ -76,7 +86,7 @@
 }
 
 .divider {
-  margin: 1.5rem 0.5rem 0.8rem;
+  margin: 1rem 0.5rem 0.8rem;
   opacity: 0.1;
 }
 

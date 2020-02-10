@@ -95,6 +95,7 @@ export const Card = props => {
             {/* <div className="col-xs-3"> */}
             <Rating rating={singleCard.rating} classes="mt-1 rating" />
             {/* </div> */}
+            <p className="location">{singleCard.location}</p>
             <div className="divider"></div>
             <div className="buttons">
               {!beenThere && (
@@ -117,6 +118,7 @@ export const Card = props => {
                   <i className="fas fa-utensils"></i>
                 </a>
               )}
+              <p className="visitedDate">{convertDate(singleCard.date)}</p>
             </div>
           </div>
           <ModalWindow
