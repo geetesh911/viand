@@ -72,16 +72,6 @@ const ModalWindow = ({ show, handleClose }) => {
           <Modal.Title>Edit</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {/* <textarea
-            rows="6"
-            cols="50"
-            name="review"
-            placeholder="review"
-            value={review}
-            onChange={onChange}
-            className="review"
-            required
-          /> */}
           <Form
             card={card}
             onChange={onChange}
