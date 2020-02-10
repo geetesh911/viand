@@ -95,16 +95,19 @@ export const AddCardForm = props => {
     const checkbox = document.getElementById("indeterminate-checkbox");
     const ratingInput = document.getElementById("rating");
     const dateInput = document.getElementById("date");
+    const dateHelperText = document.getElementById("helper-text-date");
 
     if (checkbox.checked === true) {
       ratingInput.style.setProperty("display", "block", "important");
       ratingInput.required = true;
       dateInput.style.setProperty("display", "block", "important");
+      dateHelperText.style.setProperty("display", "block", "important");
       dateInput.required = true;
     } else {
       ratingInput.style.setProperty("display", "none", "important");
       ratingInput.required = false;
       dateInput.style.setProperty("display", "none", "important");
+      dateHelperText.style.setProperty("display", "none", "important");
       dateInput.required = false;
     }
   };

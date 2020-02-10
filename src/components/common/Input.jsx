@@ -38,6 +38,7 @@ export const Input = ({
         {helperText && (
           <span
             className={`helper-text ${classes}`}
+            id={`helper-text-${name}`}
             data-error="wrong"
             data-success="right"
             style={{ fontSize: "11px", marginLeft: "10px" }}
