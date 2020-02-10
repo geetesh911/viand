@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Input } from "../common/Input";
 
 export const Form = ({ card, onChange, columns, disable }) => {
-  const { name, zomato, menu } = card;
+  const { name, menu } = card;
 
   return (
     <Fragment>
@@ -13,16 +13,6 @@ export const Form = ({ card, onChange, columns, disable }) => {
         onChange={onChange}
         label="Name:"
         required={true}
-        columns={columns}
-        disable={disable || false}
-      />
-
-      <Input
-        type="text"
-        name="zomato"
-        value={zomato}
-        onChange={onChange}
-        label="Zomato:"
         columns={columns}
         disable={disable || false}
       />
