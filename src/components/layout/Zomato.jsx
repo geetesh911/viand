@@ -3,6 +3,7 @@ import CardContext from "../../context/cards/cardContext";
 import AuthContext from "../../context/auth/authContext";
 import { ZomatoItem } from "./ZomatoItem";
 import Spinner from "./Spinner";
+import { Select } from "./../common/Select";
 
 export const Zomato = () => {
   const cardContext = useContext(CardContext);
@@ -61,14 +62,19 @@ export const Zomato = () => {
       <h1 className="mx-auto">Search Restaurants</h1>
       <div className="row container">
         <div className="col-md-2 col-sm-12">
-          <select className="form-control selectCities" id="cities">
-            <option value="10">Jaipur</option>
-            <option value="1">Delhi</option>
-            <option value="4">Bengaluru</option>
-            <option value="3">Mumbai</option>
-            <option value="6">Hyderabad</option>
-            <option value="5">Pune</option>
-          </select>
+          <Select
+            options={[
+              { text: "Jaipur", value: "10" },
+              { text: "Delhi", value: "1" },
+              { text: "Kolkata", value: "2" },
+              { text: "Mumbai", value: "3" },
+              { text: "Bengaluru", value: "4" },
+              { text: "Pune", value: "5" },
+              { text: "Hyderabad", value: "6" }
+            ]}
+            classes="form-control selectCities"
+            id="cities"
+          />
         </div>
         <div className="col-md-10 col-sm-12">
           <div className="input-group">

@@ -35,7 +35,7 @@ export const Card = props => {
     getCards();
     //eslint-disable-next-line
   }, []);
-  const { beenThere } = singleCard;
+  const { beenThere, zomato } = singleCard;
   const TabInfo = Object.assign({}, singleCard);
 
   const updateBeenThere = () => {
@@ -107,14 +107,16 @@ export const Card = props => {
                 </button>
               )}
               {/* <div className="beenThere"></div> */}
-              <a
-                type="button"
-                className="btn btn-outline-secondary"
-                href={singleCard.zomato}
-              >
-                {/* <img src="https://img.icons8.com/doodle/40/000000/zomato.png" /> */}
-                <i className="fas fa-utensils"></i>
-              </a>
+              {zomato && (
+                <a
+                  type="button"
+                  className="btn btn-outline-secondary"
+                  href={singleCard.zomato}
+                >
+                  {/* <img src="https://img.icons8.com/doodle/40/000000/zomato.png" /> */}
+                  <i className="fas fa-utensils"></i>
+                </a>
+              )}
             </div>
           </div>
           <ModalWindow
