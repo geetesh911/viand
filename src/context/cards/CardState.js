@@ -32,7 +32,10 @@ const CardState = props => {
   const [state, dispatch] = useReducer(cardReducer, initialState);
 
   const menuField = menu => {
-    let arr = menu.split(", ");
+    let arr = menu.split(",");
+
+    for (let i = 0; i < arr.length; i++) arr[i] = arr[i].trim();
+
     let arr2 = [];
     let menuArray = [];
     for (let i = 0; i < arr.length; i++) {
