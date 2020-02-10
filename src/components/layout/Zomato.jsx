@@ -56,6 +56,7 @@ export const Zomato = () => {
   const clear = () => {
     document.getElementById("search").value = "";
     setSearch({ keywords: "" });
+    setRestaurants("");
   };
   return (
     <div className="container-fluid zomato" style={{ textAlign: "center" }}>
