@@ -5,14 +5,6 @@ import { ZomatoItem } from "./ZomatoItem";
 import Spinner from "./Spinner";
 import { Select } from "./../common/Select";
 
-let zomatoAPIKey;
-
-if (process.env.NODE_ENV !== "production") {
-  zomatoAPIKey = process.env.REACT_APP_ZOMATO_API_KEY;
-} else {
-  zomatoAPIKey = process.env.ZOMATO_API_KEY;
-}
-
 export const Zomato = () => {
   const cardContext = useContext(CardContext);
   const authContext = useContext(AuthContext);
@@ -45,7 +37,7 @@ export const Zomato = () => {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
-            "user-key": zomatoAPIKey
+            "user-key": "4ef72a22815f178e8bc2793be2a08df9"
           }
         }
       );
