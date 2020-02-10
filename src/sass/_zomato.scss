@@ -1,0 +1,277 @@
+.zomato {
+  .input-group {
+    width: 100% !important;
+  }
+}
+
+.resSearchButton,
+.zomato-item .btn {
+  background-color: $primaryColor !important;
+  &:hover {
+    background-color: $primaryHoverColor !important;
+    color: white !important;
+  }
+}
+
+.resSearchButton {
+  margin-bottom: 30px !important;
+}
+.selectCities {
+  // max-width: 120px;
+  border: none;
+  height: 45px;
+  margin: auto;
+  margin-bottom: 20px;
+  background: $darkThemeComponents;
+  border-radius: 20px;
+  color: $whiteFirstLayer !important;
+  // appearance: none;
+  text-indent: 5px;
+  &:focus {
+    background: $darkThemeComponents !important;
+    color: $whiteFirstLayer !important;
+    border-color: $darkThemeBackground !important;
+    box-shadow: 0 0 0 0.2rem rgba(#ecc79f, 1) !important;
+  }
+}
+
+.zomato-item {
+  color: $whiteFirstLayer;
+  @import url("https://fonts.googleapis.com/css?family=Open+Sans:300");
+  // Variables
+  $regal-blue: #034378;
+  $san-juan: #2d4e68;
+  $bermuda: #77d7b9;
+  $dark: $darkThemeComponents;
+  $black: #000;
+  $open-sans: "Open Sans", sans-serif;
+  // clear-fix mixin
+  @mixin cf {
+    &::before,
+    &::after {
+      content: "";
+      display: table;
+    }
+    &::after {
+      clear: both;
+    }
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .btn {
+    position: absolute;
+    bottom: 15px;
+  }
+
+  .cardTitle {
+    text-decoration: none;
+    color: $whiteFirstLayer;
+    // font-size: 30px !important;
+  }
+
+  .title {
+    // font-family: $open-sans;
+    font-weight: bold;
+  }
+
+  .row {
+    max-width: 900px;
+    margin: 40px auto 20px !important;
+  }
+
+  // Base styles
+  .zomato-card {
+    float: left;
+    padding: 0 0rem;
+    width: 100%;
+    .menu-content {
+      @include cf;
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      li {
+        display: inline-block;
+      }
+      a {
+        color: $whiteFirstLayer;
+      }
+      span {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        font-size: 10px;
+        font-weight: 700;
+        font-family: "Open Sans";
+        transform: translate(-50%, 0);
+      }
+    }
+    .wrapper {
+      background-color: $dark;
+      max-height: 200px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 19px 38px rgba($black, 0.3), 0 15px 12px rgba($black, 0.2);
+    }
+    .data {
+      float: right;
+      width: 55%;
+      height: 100%;
+      position: absolute;
+      right: 70px;
+      // margin-right: 20px;
+      cardContent {
+        padding: 1em;
+        position: relative;
+        z-index: 1;
+        max-width: auto !important;
+      }
+    }
+    .author {
+      font-size: 12px;
+    }
+    .title {
+      margin-top: 10px;
+    }
+    .locality {
+      height: auto;
+      margin: 10px 0 5px 0;
+      font-weight: 600;
+      color: $whiteThirdLayer;
+    }
+    .address {
+      height: auto;
+      margin: 0 0 5px 0;
+      font-size: 12px;
+      color: $whiteFourthLayer;
+    }
+    .cost {
+      position: absolute;
+      bottom: 45px !important;
+      margin: 0 0 5px 0;
+      font-size: 15px !important;
+      color: $whiteThirdLayer;
+    }
+    input[type="checkbox"] {
+      display: none;
+    }
+    input[type="checkbox"]:checked + .menu-content {
+      transform: translateY(-60px);
+    }
+  }
+
+  // First example styles
+  .example-1 {
+    width: 100%;
+    .date {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: $bermuda;
+      color: $dark;
+      padding: 0.8em;
+      span {
+        display: block;
+        text-align: center;
+      }
+      .day {
+        font-weight: 700;
+        font-size: 24px;
+        text-shadow: 2px 3px 2px rgba($black, 0.18);
+      }
+      .month {
+        text-transform: uppercase;
+      }
+      .month,
+      .year {
+        font-size: 12px;
+      }
+    }
+    .cardContent {
+      background-color: $dark;
+      //   box-shadow: 0 5px 30px 10px rgba($black, 0.3);
+      text-align: left !important;
+    }
+    .title {
+      a {
+        color: $whiteFirstLayer;
+      }
+    }
+  }
+
+  .image {
+    float: left;
+    width: 40%;
+    height: 80%;
+  }
+
+  .book-image {
+    width: 80%;
+    display: block;
+    height: 60%;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .cardBadge {
+    position: absolute !important;
+    right: 10px;
+    top: 13px;
+    color: white;
+    font-size: 0.7rem;
+    min-width: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .zomato {
+    .input-group {
+      width: 100% !important;
+    }
+  }
+  .zomato-item {
+    .row {
+      margin: 20px auto 10px !important;
+    }
+    .wrapper {
+      // background: transparent !important;
+      box-shadow: none !important;
+    }
+    .data {
+      right: 35px !important;
+      width: 52% !important;
+    }
+    .cardContent {
+      background: transparent !important;
+    }
+    .cost {
+      display: none;
+    }
+    .title {
+      margin: 10px 0 5 0 !important;
+      font-size: 14px;
+      font-weight: normal;
+    }
+    .btn {
+      font-size: 10px;
+      bottom: 10px;
+    }
+    .btn-small {
+      height: 25px !important;
+      line-height: 25px !important;
+    }
+    .locality {
+      font-size: 9px !important;
+      margin: 3px 0 0 0 !important;
+    }
+    .address {
+      display: none;
+    }
+    .cardBadge {
+      top: 5px;
+      right: 5px;
+    }
+  }
+}

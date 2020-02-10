@@ -1,0 +1,23 @@
+.addButton {
+  font-size: 40px !important;
+  z-index: 9999;
+  position: fixed;
+  border-radius: 50%;
+  right: 20px;
+  bottom: 20px;
+  background-color: $primaryColor;
+  color: white;
+  padding: 13px 18px;
+  line-height: 30px;
+  cursor: pointer !important;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  &:hover {
+    background-color: $primaryHoverColor;
+    color: white;
+  }
+  .fas {
+    font-weight: 600 !important;
+    font-size: 30px !important;
+  }
+}

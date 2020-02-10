@@ -1,0 +1,119 @@
+.input-group {
+  width: 80% !important;
+  margin: auto !important;
+  input[type="text"]:not(.browser-default) {
+    background-color: $darkThemeComponents !important;
+    border-bottom: none !important;
+    width: 100% !important;
+    margin-bottom: 0 !important;
+    margin: 0 !important;
+    color: white !important;
+  }
+  input[type="text"]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 0 !important;
+    box-shadow: none !important;
+  }
+  input[type="text"]:not(.browser-default):focus {
+    &:focus {
+      border: none !important;
+    }
+  }
+}
+
+.input-group-text {
+  background-color: $darkThemeComponents !important;
+  height: 45px !important;
+  border-radius: 25px 0 0 25px !important;
+  border: 0;
+  border-left: 3px solid transparent !important;
+  padding: 0 0 0 10px;
+}
+
+.searchButton {
+  float: left;
+  height: 3rem !important;
+  margin-bottom: 6px !important;
+  // margin-left: 0.75rem !important;
+  border-radius: 5px !important;
+  background-color: $primaryColor !important;
+
+  &:hover {
+    background-color: $primaryHoverColor !important;
+    color: white !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100% !important;
+  }
+  .searchButton {
+    margin-top: 10px;
+    width: 100%;
+  }
+}
+.select-dropdown {
+  border-radius: 5px !important;
+  // height: 45px !important;
+}
+.dropdown-content {
+  background-color: $darkThemeComponents !important;
+  color: white !important;
+}
+
+.dropdown-content li > a,
+.dropdown-content li > span,
+.select-wrapper input.select-dropdown {
+  font-family: "Lato", "Font Awesome 5 Free" !important;
+  font-weight: 900;
+  font-size: 20px !important;
+  color: white !important;
+}
+.select-wrapper {
+  width: 50px;
+  float: right;
+  border-radius: 5px;
+  box-sizing: border-box;
+  input.select-dropdown {
+    text-align: center;
+  }
+  .select-dropdown {
+    width: 50px !important;
+  }
+}
+
+.searchBox {
+  box-sizing: border-box !important;
+  padding: 0 8px !important;
+  // border-left: 3px solid transparent !important;
+  height: 45px !important;
+  border-radius: 0 25px 25px 0 !important;
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .searchBox {
+    height: 45px !important;
+  }
+  .input-group-text {
+    height: 45px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .select-wrapper {
+    margin-bottom: 10px;
+    // width: 100%;
+  }
+  .searchBox {
+    height: 45px !important;
+  }
+  .input-group-text {
+    height: 45px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .input-group {
+    width: 100% !important;
+  }
+}

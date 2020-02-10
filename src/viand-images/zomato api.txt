@@ -1,0 +1,10 @@
+const config = {
+      headers: { "user-key": "4ef72a22815f178e8bc2793be2a08df9" }
+    };
+    Axios.get(
+      "https://developers.zomato.com/api/v2.1/search?entity_id=10&entity_type=city&count=100",
+      config
+    ).then(res => {
+      console.log(res.data);
+      this.setState({ places: res.data.collections });
+    });

@@ -1,0 +1,238 @@
+.header {
+  background-color: $darkThemeComponents;
+  padding: 20px 25px 20px;
+  border-radius: 0 0 5px 5px;
+  h3 {
+    margin: 0 !important;
+  }
+
+  .rating {
+    font-size: 30px !important;
+    height: 35px;
+    padding: 6px;
+  }
+  @media screen and (max-width: 576px) {
+    .rating {
+      position: absolute;
+      right: 20px;
+      line-height: 35px;
+      font-size: 15px !important;
+      padding: 0 5px !important;
+      min-width: 2rem !important;
+    }
+  }
+
+  .cardHeading {
+    text-transform: capitalize;
+    .fas {
+      color: $whiteFirstLayer;
+      &:hover {
+        color: $whiteSecondLayer;
+      }
+    }
+  }
+}
+
+.viand-slider {
+  .beenThere {
+    padding: 5px 7px;
+    border-radius: 50%;
+    background-color: #990011;
+    color: #fcf6f5;
+    position: absolute;
+    top: 100px;
+    right: 18%;
+    margin-right: 10px;
+    float: right;
+    // left: 260px;
+    font-size: 20px;
+
+    .fa-shoe-prints {
+      text-shadow: 2px 2px rgba($darkThemeComponents, 0.75);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .thumb {
+    height: 80px;
+    width: 80px;
+  }
+  .viand-slider {
+    .beenThere {
+      top: 85px;
+      right: 7%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .viand-slider {
+    .beenThere {
+      top: 90px;
+      right: 3%;
+    }
+  }
+}
+
+.divider {
+  margin: 1.5rem 0.5rem 0.8rem;
+  opacity: 0.1;
+}
+
+.buttons {
+  margin: auto !important;
+  // float: right;
+  // margin-left: 100px !important;
+  // margin-bottom: 10px;
+  .btn {
+    background-color: $darkThemeBackground !important;
+    margin-right: 10px;
+    &:hover {
+      background-color: $primaryHoverColor !important;
+      color: white !important;
+    }
+  }
+}
+.nav-tabs {
+  margin-top: 20px;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border-bottom: 0 !important;
+  background-color: $darkThemeComponents !important;
+  .nav-item {
+    cursor: pointer;
+    outline: none !important;
+    color: $orangeFirstLayer !important;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+      "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    padding: 10px 30px !important;
+    margin-right: 10px;
+    line-height: 40px;
+    &:hover {
+      background-color: rgba($orangeFirstLayer, 0.03);
+      color: white;
+    }
+  }
+  .nav-link {
+    font-size: 20px;
+    border: none !important;
+  }
+  .active {
+    background-color: transparent !important;
+    border-bottom: 3px solid $orangeSecondLayer !important;
+    color: $orangeSecondLayer !important;
+    font-weight: 700;
+  }
+}
+
+.tabContent {
+  padding: 15px !important;
+  border-radius: 5px;
+  margin: 20px 0;
+  background-color: $darkThemeComponents;
+
+  .table {
+    margin-bottom: 0 !important;
+  }
+}
+
+.tabs {
+  border-radius: 5px;
+  height: 70px !important;
+  background-color: $darkThemeComponents !important;
+  .col {
+    width: auto !important;
+  }
+  .indicator {
+    height: 3px !important;
+    // width: 50%;
+    background-color: $orangeSecondLayer !important;
+  }
+  .tab {
+    a {
+      padding: 10px 30px !important;
+      height: 70px !important;
+      color: $orangeFirstLayer !important;
+      font-size: 20px !important;
+      &.active {
+        font-weight: 700;
+        color: $orangeSecondLayer !important;
+      }
+    }
+  }
+}
+.tabs-content {
+  border-radius: 5px;
+  height: 250px !important;
+  margin: 20px 0 !important;
+  background-color: $darkThemeComponents !important;
+  overflow-y: auto !important;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .tabContent {
+    padding: 15px !important;
+  }
+  .carousel-item {
+    min-height: auto !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-tabs {
+    .nav-item {
+      line-height: 30px !important;
+    }
+  }
+  .modal {
+    width: 100%;
+    .modal-body {
+      padding: 1rem 0;
+    }
+  }
+}
+
+.modal {
+  max-height: 100% !important;
+  background: transparent !important;
+  // overflow: visible !important;
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .modal-dailog {
+    height: 600px;
+  }
+  .modal-content {
+    background: $darkThemeComponents;
+    .close {
+      color: $whiteFirstLayer;
+      &:focus {
+        background-color: transparent;
+      }
+    }
+    .helper-text {
+      color: #ffc68a !important;
+    }
+  }
+
+  .modal-footer {
+    background: $darkThemeComponents;
+  }
+  .valign {
+    display: flex;
+    align-items: center;
+  }
+  .btn {
+    background-color: $primaryColor !important;
+    margin-left: 10px !important;
+    &:hover {
+      background-color: $primaryHoverColor !important;
+      color: white !important;
+    }
+  }
+}

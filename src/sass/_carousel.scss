@@ -1,0 +1,15 @@
+.viand-slider {
+  margin-top: 20px !important;
+}
+
+.image-gallery-image {
+  object-fit: cover !important;
+  border-radius: 5px 5px 0 0;
+  max-height: 450px !important;
+}
+.image-gallery-icon {
+  &:focus {
+    background: transparent !important;
+    outline: transparent !important;
+  }
+}

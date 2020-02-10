@@ -1,0 +1,16 @@
+.toast-container {
+  background-color: transparent;
+
+  max-width: 300px;
+  margin: auto;
+
+  z-index: 99;
+  margin-bottom: 50px;
+  margin-top: 0px !important;
+  .toast {
+    margin: 0;
+    background-color: #dc3545;
+    font-weight: 400;
+    padding: 5px 25px;
+  }
+}
