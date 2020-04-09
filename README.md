@@ -8,9 +8,9 @@ This is an website to add an experience of a visit to a restaurant or cafe like 
 
 ### `Technologies Used`
 
-#### 'SCSS'
+#### `SCSS`
 
-#### 'Bootstrap'
+#### `Bootstrap`
 
 #### `Materializecss`
 
