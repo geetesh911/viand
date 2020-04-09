@@ -1,4 +1,4 @@
-[Project Link](https://flick-movies.netlify.com/).
+[Project Link](https://viand.netlify.com/).
 
 ## Viand (food diary app)
 
@@ -8,11 +8,18 @@ This is an website to add an experience of a visit to a restaurant or cafe like 
 
 ### `Technologies Used`
 
-SCSS
-Bootstrap
-Materializecss
-Javascript
-Reactjs
-Nodejs
-Netlify
-Heroku
+#### 'SCSS'
+
+#### 'Bootstrap'
+
+#### `Materializecss`
+
+#### `Javascript`
+
+#### `Reactjs`
+
+#### `Nodejs`
+
+#### `Heroku`
+
+#### `Netlify`
