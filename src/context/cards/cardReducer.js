@@ -12,7 +12,8 @@ import {
   CLEAR_CARD,
   CARD_ERROR,
   SET_ZOMATO,
-  CLEAR_ZOMATO
+  CLEAR_ZOMATO,
+  CLEAR_ERRORS,
 } from "../types";
 
 export default (state, action) => {
@@ -21,30 +22,30 @@ export default (state, action) => {
       return {
         ...state,
         cards: action.payload,
-        loading: false
+        loading: false,
       };
     case GET_CARD:
       return {
         ...state,
         singleCard: action.payload,
-        loading: false
+        loading: false,
       };
     case ADD_CARD:
       return {
         ...state,
         cards: [action.payload, ...state.cards],
-        loading: false
+        loading: false,
       };
     case DELETE_CARD:
       return {
         ...state,
-        cards: state.cards.filter(card => card._id !== action.payload),
-        loading: false
+        cards: state.cards.filter((card) => card._id !== action.payload),
+        loading: false,
       };
     case UPDATE_CARD:
       return {
         ...state,
-        cards: state.cards.map(card => {
+        cards: state.cards.map((card) => {
           if (card._id === action.payload._id) {
             return (card = action.payload);
           } else {
@@ -54,7 +55,7 @@ export default (state, action) => {
         singleCard:
           state.singleCard._id === action.payload._id
             ? action.payload
-            : state.singleCard
+            : state.singleCard,
       };
     case CLEAR_CARDS:
       return {
@@ -63,50 +64,55 @@ export default (state, action) => {
         singleCard: null,
         current: null,
         filtered: null,
-        error: null
+        error: null,
       };
     case FILTER_CARDS:
       return {
         ...state,
-        filtered: state.cards.filter(card => {
+        filtered: state.cards.filter((card) => {
           const regex = new RegExp(`${action.payload}`, "gi");
           return card.name.match(regex);
-        })
+        }),
       };
     case CLEAR_FILTER:
       return {
         ...state,
-        filtered: null
+        filtered: null,
       };
     case CARD_ERROR:
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
       };
     case SET_CURRENT:
       return {
         ...state,
-        current: action.payload
+        current: action.payload,
       };
     case SET_ZOMATO:
       return {
         ...state,
-        zomatoData: action.payload
+        zomatoData: action.payload,
       };
     case CLEAR_CURRENT:
       return {
         ...state,
-        current: null
+        current: null,
       };
     case CLEAR_ZOMATO:
       return {
         ...state,
-        zomatoData: null
+        zomatoData: null,
       };
     case CLEAR_CARD:
       return {
         ...state,
-        singleCard: null
+        singleCard: null,
+      };
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
       };
     default:
       return state;

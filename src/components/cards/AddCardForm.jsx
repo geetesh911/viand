@@ -5,19 +5,19 @@ import AuthContext from "../../context/auth/authContext";
 import { Input } from "./../common/Input";
 import { convertDate } from "./../../utils/convertDate";
 
-export const AddCardForm = props => {
+export const AddCardForm = (props) => {
   const cardContext = useContext(CardContext);
   const authContext = useContext(AuthContext);
 
   const { loadUser } = authContext;
-  const { zomatoData } = cardContext;
+  const { zomatoData, error } = cardContext;
   let photosData = [];
 
   if (!zomatoData) {
     props.history.push("/");
   } else {
     zomatoData.photos
-      ? zomatoData.photos.forEach(photo => photosData.push(photo.photo.url))
+      ? zomatoData.photos.forEach((photo) => photosData.push(photo.photo.url))
       : (photosData = []);
   }
 
@@ -31,13 +31,13 @@ export const AddCardForm = props => {
     zomato: "",
     thumb: "",
     location: "",
-    photos: []
+    photos: [],
   });
-  const onChange = e => {
+  const onChange = (e) => {
     setCard({
       ...card,
       [e.target.name]: e.target.value,
-      beenThere: document.getElementById("indeterminate-checkbox").checked
+      beenThere: document.getElementById("indeterminate-checkbox").checked,
     });
   };
 
@@ -49,19 +49,19 @@ export const AddCardForm = props => {
         zomato: zomatoData.url,
         thumb: zomatoData.thumb,
         location: zomatoData.location.locality,
-        photos: photosData
+        photos: photosData,
       });
     }
     // eslint-disable-next-line
   }, []);
 
-  const onSubmit = e => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (!card.date) {
       card.date = convertDate(new Date());
     }
-    cardContext.addCard(card);
-    props.history.push("/");
+    await cardContext.addCard(card);
+    if (!error) props.history.push("/");
 
     setCard({
       name: "",
@@ -73,12 +73,12 @@ export const AddCardForm = props => {
       menu: [],
       thumb: "",
       location: "",
-      photos: []
+      photos: [],
     });
     document.getElementById("indeterminate-checkbox").checked = false;
   };
 
-  const showReview = e => {
+  const showReview = (e) => {
     const checkbox = document.getElementById("indeterminate-checkbox");
     const reviewTextArea = document.querySelector(".review");
 
@@ -91,7 +91,7 @@ export const AddCardForm = props => {
     }
   };
 
-  const showOthers = e => {
+  const showOthers = (e) => {
     const checkbox = document.getElementById("indeterminate-checkbox");
     const ratingInput = document.getElementById("rating");
     const dateInput = document.getElementById("date");

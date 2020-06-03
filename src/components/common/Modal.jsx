@@ -18,7 +18,7 @@ const ModalWindow = ({ show, handleClose }) => {
     review: "",
     menu: [],
     beenThere: false,
-    zomato: ""
+    zomato: "",
   });
 
   useEffect(() => {
@@ -30,16 +30,17 @@ const ModalWindow = ({ show, handleClose }) => {
     // eslint-disable-next-line
   }, [current]);
 
-  const onChange = e => {
+  const onChange = (e) => {
     setCard({
       ...card,
       [e.target.name]: e.target.value,
-      _id: singleCard._id
+      _id: singleCard._id,
     });
   };
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
+    console.log("object");
     updateCard(card);
     setCard({
       name: "",
@@ -48,11 +49,11 @@ const ModalWindow = ({ show, handleClose }) => {
       review: "",
       menu: [],
       beenThere: false,
-      zomato: ""
+      zomato: "",
     });
   };
 
-  const showReview = e => {
+  const showReview = (e) => {
     const checkbox = document.getElementById("indeterminate-checkbox");
     const reviewTextArea = document.querySelector(".review");
 
@@ -125,7 +126,14 @@ const ModalWindow = ({ show, handleClose }) => {
           )}
         </Modal.Body>
         <Modal.Footer>
-          <Button type="submit" variant="primary" onClick={handleClose}>
+          <Button
+            type="submit"
+            variant="primary"
+            onClick={(e) => {
+              handleClose();
+              onSubmit(e);
+            }}
+          >
             Save Changes
           </Button>
         </Modal.Footer>

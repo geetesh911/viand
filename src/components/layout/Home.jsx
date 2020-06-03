@@ -3,20 +3,29 @@ import Dashboard from "./Dashboard";
 import { Cards } from "./../cards/Cards";
 import { Link } from "react-router-dom";
 import AuthContext from "./../../context/auth/authContext";
+import AlertContext from "../../context/alert/alertContext";
 import CardContext from "./../../context/cards/cardContext";
 
 export const Home = ({ cards }) => {
   const authContext = useContext(AuthContext);
+  const alertContext = useContext(AlertContext);
   const cardContext = useContext(CardContext);
 
   const { loadUser } = authContext;
-  const { clearZomato } = cardContext;
+  const { setAlert } = alertContext;
+  const { clearZomato, error, clearErrors } = cardContext;
 
   useEffect(() => {
     loadUser();
     clearZomato();
+
+    if (error && error.msg === "Place already exist") {
+      setAlert(error.msg, "danger");
+      clearErrors();
+    }
+
     // eslint-disable-next-line
-  }, []);
+  }, [error]);
 
   return (
     <Fragment>

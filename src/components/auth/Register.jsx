@@ -3,9 +3,11 @@ import { Input } from "../common/Input";
 import AlertContext from "../../context/alert/alertContext";
 import AuthContext from "../../context/auth/authContext";
 
-const Register = props => {
+const Register = (props) => {
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
+
+  const [loading, setLoading] = useState(false);
 
   const { setAlert } = alertContext;
   const { register, error, clearErrors, isAuthenticated } = authContext;
@@ -23,27 +25,29 @@ const Register = props => {
     name: "",
     email: "",
     password: "",
-    password2: ""
+    password2: "",
   });
 
   const { name, email, password, password2 } = user;
 
-  const onChange = e => {
+  const onChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  const onSubmit = e => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (name === "" || email === "" || password === "" || password2 === "") {
       setAlert("Please enter all fields", "danger");
     } else if (password !== password2) {
       setAlert("Passwords do not match", "danger");
     } else {
-      register({
+      setLoading(true);
+      await register({
         name,
         email,
-        password
+        password,
       });
+      setLoading(false);
     }
   };
 
@@ -86,11 +90,20 @@ const Register = props => {
           required={true}
           minLength="6"
         />
-        <input
+        <button
           type="submit"
-          value="Register"
           className="btn btn-primary submitButton btn-block"
-        />
+        >
+          {loading ? (
+            <span
+              className="spinner-border spinner-border-sm"
+              role="status"
+              aria-hidden="true"
+            ></span>
+          ) : (
+            "Login"
+          )}
+        </button>
       </form>
     </div>
   );

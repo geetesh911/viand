@@ -3,9 +3,11 @@ import { Input } from "../common/Input";
 import AlertContext from "../../context/alert/alertContext";
 import AuthContext from "../../context/auth/authContext";
 
-const Login = props => {
+const Login = (props) => {
   const alertContext = useContext(AlertContext);
   const authContext = useContext(AuthContext);
+
+  const [loading, setLoading] = useState(false);
 
   const { setAlert } = alertContext;
   const { login, error, clearErrors, isAuthenticated } = authContext;
@@ -21,24 +23,26 @@ const Login = props => {
 
   const [user, setUser] = useState({
     email: "",
-    password: ""
+    password: "",
   });
 
   const { email, password } = user;
 
-  const onChange = e => {
+  const onChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  const onSubmit = e => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     if (email === "" || password === "") {
       setAlert("Please enter all fields", "danger");
     } else {
-      login({
+      setLoading(true);
+      await login({
         email,
-        password
+        password,
       });
+      setLoading(false);
     }
   };
 
@@ -66,11 +70,20 @@ const Login = props => {
           minLength="6"
         />
 
-        <input
+        <button
           type="submit"
-          value="Login"
           className="btn btn-primary submitButton btn-block"
-        />
+        >
+          {loading ? (
+            <span
+              className="spinner-border spinner-border-sm"
+              role="status"
+              aria-hidden="true"
+            ></span>
+          ) : (
+            "Login"
+          )}
+        </button>
       </form>
     </div>
   );

@@ -16,22 +16,31 @@ import {
   GET_CARD,
   CLEAR_CARD,
   SET_ZOMATO,
-  CLEAR_ZOMATO
+  CLEAR_ZOMATO,
+  CLEAR_ERRORS,
 } from "../types";
 
-const CardState = props => {
+let API_URL = "";
+
+if (process.env.NODE_ENV === "production") {
+  API_URL = "https://viand-food-app.herokuapp.com";
+} else {
+  API_URL = "http://localhost:5000";
+}
+
+const CardState = (props) => {
   const initialState = {
     cards: null,
     singleCard: {},
     current: null,
     filtered: null,
     error: null,
-    zomatoData: null
+    zomatoData: null,
   };
 
   const [state, dispatch] = useReducer(cardReducer, initialState);
 
-  const menuField = menu => {
+  const menuField = (menu) => {
     let arr = menu.split(",");
 
     for (let i = 0; i < arr.length; i++) arr[i] = arr[i].trim();
@@ -55,9 +64,7 @@ const CardState = props => {
   // Get Cards
   const getCards = async () => {
     try {
-      const res = await Axios.get(
-        "https://viand-food-app.herokuapp.com/api/cards"
-      );
+      const res = await Axios.get(`${API_URL}/api/cards`);
       dispatch({ type: GET_CARDS, payload: res.data });
     } catch (err) {
       dispatch({ type: CARD_ERROR, payload: err.response.msg });
@@ -65,11 +72,9 @@ const CardState = props => {
   };
 
   // Get Card
-  const getCard = async id => {
+  const getCard = async (id) => {
     try {
-      const res = await Axios.get(
-        `https://viand-food-app.herokuapp.com/api/cards/${id}`
-      );
+      const res = await Axios.get(`${API_URL}/api/cards/${id}`);
       dispatch({ type: GET_CARD, payload: res.data });
     } catch (err) {
       dispatch({ type: CARD_ERROR, payload: err.response.msg });
@@ -77,19 +82,15 @@ const CardState = props => {
   };
 
   // Add a card
-  const addCard = async card => {
+  const addCard = async (card) => {
     card.menu = menuField(card.menu);
     const config = {
       headers: {
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
     };
     try {
-      const res = await Axios.post(
-        "https://viand-food-app.herokuapp.com/api/cards",
-        card,
-        config
-      );
+      const res = await Axios.post(`${API_URL}/api/cards`, card, config);
       dispatch({ type: ADD_CARD, payload: res.data });
     } catch (err) {
       dispatch({ type: CARD_ERROR, payload: err.response.data });
@@ -97,11 +98,9 @@ const CardState = props => {
   };
 
   // Delete a card
-  const deleteCard = async id => {
+  const deleteCard = async (id) => {
     try {
-      await Axios.delete(
-        `https://viand-food-app.herokuapp.com/api/cards/${id}`
-      );
+      await Axios.delete(`${API_URL}/api/cards/${id}`);
       dispatch({ type: DELETE_CARD, payload: id });
     } catch (err) {
       dispatch({ type: CARD_ERROR, payload: err.response.msg });
@@ -109,20 +108,20 @@ const CardState = props => {
   };
 
   // Update current contact
-  const updateCard = async singleCard => {
+  const updateCard = async (singleCard) => {
     if (singleCard.menu) {
       singleCard.menu = menuField(singleCard.menu);
     }
 
     const config = {
       headers: {
-        "Content-Type": "application/json"
-      }
+        "Content-Type": "application/json",
+      },
     };
 
     try {
       const res = await Axios.put(
-        `https://viand-food-app.herokuapp.com/api/cards/${singleCard._id}`,
+        `${API_URL}/api/cards/${singleCard._id}`,
         singleCard,
         config
       );
@@ -143,7 +142,7 @@ const CardState = props => {
   };
 
   // Filter cards
-  const filterCards = text => {
+  const filterCards = (text) => {
     dispatch({ type: FILTER_CARDS, payload: text });
   };
 
@@ -153,7 +152,7 @@ const CardState = props => {
   };
 
   // Set Current
-  const setCurrent = card => {
+  const setCurrent = (card) => {
     dispatch({ type: SET_CURRENT, payload: card });
   };
 
@@ -163,13 +162,18 @@ const CardState = props => {
   };
 
   //Set Zomato
-  const setZomato = restaurant => {
+  const setZomato = (restaurant) => {
     dispatch({ type: SET_ZOMATO, payload: restaurant });
   };
 
   // Clear Zomato
   const clearZomato = () => {
     dispatch({ type: CLEAR_ZOMATO });
+  };
+
+  // Clear Zomato
+  const clearErrors = () => {
+    dispatch({ type: CLEAR_ERRORS });
   };
 
   return (
@@ -193,7 +197,8 @@ const CardState = props => {
         setCurrent,
         clearCurrent,
         setZomato,
-        clearZomato
+        clearZomato,
+        clearErrors,
       }}
     >
       {props.children}
