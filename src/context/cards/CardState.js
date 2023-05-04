@@ -23,7 +23,7 @@ import {
 let API_URL = "";
 
 if (process.env.NODE_ENV === "production") {
-  API_URL = "https://viand-food-app.herokuapp.com";
+  API_URL = "https://viand-0xti.onrender.com";
 } else {
   API_URL = "http://localhost:5000";
 }
