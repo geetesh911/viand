@@ -31,7 +31,7 @@ const AuthState = props => {
 
     try {
       const res = await axios.get(
-        "https://viand-food-app.herokuapp.com/api/auth"
+        "https://viand-0xti.onrender.com/api/auth"
       );
       dispatch({ type: USER_LOADED, payload: res.data });
     } catch (err) {
@@ -52,7 +52,7 @@ const AuthState = props => {
     };
     try {
       const res = await axios.post(
-        "https://viand-food-app.herokuapp.com/api/users",
+        "https://viand-0xti.onrender.com/api/users",
         formData,
         config
       );
@@ -76,7 +76,7 @@ const AuthState = props => {
     };
     try {
       const res = await axios.post(
-        "https://viand-food-app.herokuapp.com/api/auth",
+        "https://viand-0xti.onrender.com/api/auth",
         formData,
         config
       );
